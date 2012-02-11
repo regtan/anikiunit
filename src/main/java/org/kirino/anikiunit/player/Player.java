@@ -9,6 +9,8 @@ import javax.sound.sampled.Line;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
+import org.kirino.anikiunit.context.Context;
+
 public class Player {
 
 	public void play(String path) throws UnsupportedAudioFileException, IOException, LineUnavailableException,
@@ -21,7 +23,13 @@ public class Player {
 			Thread.sleep(100);
 		}
 		clip.close();
-
 	}
 
+	public Context select() {
+		String voiceType = System.getProperty(Context.VOICE.toString());
+		if (voiceType == null) {
+			return Context.ANIKI;
+		}
+		return voiceType.equalsIgnoreCase(Context.MIKU.name()) ? Context.MIKU : Context.ANIKI;
+	}
 }
