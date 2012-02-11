@@ -11,9 +11,9 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 
 public class Player {
 
-	public void play() throws UnsupportedAudioFileException, IOException, LineUnavailableException,
+	public void play(String path) throws UnsupportedAudioFileException, IOException, LineUnavailableException,
 			InterruptedException {
-		AudioInputStream ais = AudioSystem.getAudioInputStream(this.getClass().getResourceAsStream("/red.wav"));
+		AudioInputStream ais = AudioSystem.getAudioInputStream(this.getClass().getResourceAsStream(path));
 		Clip clip = (Clip) AudioSystem.getLine(new Line.Info(Clip.class));
 		clip.open(ais);
 		clip.start();

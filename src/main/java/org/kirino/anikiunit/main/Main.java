@@ -11,7 +11,6 @@ public class Main {
 	public static void main(String[] args) throws UnsupportedAudioFileException, IOException, LineUnavailableException,
 			InterruptedException {
 		Player player = new Player();
-		player.play();
-		System.out.println(args[0]);
+		player.play("/aniki/green.wav");
 	}
 }
